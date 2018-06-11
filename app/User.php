@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
+    
     use Notifiable;
 
     /**
@@ -27,4 +28,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function categories()
+    {
+    return $this->belongsToMany(Categories::class);
+    }
 }

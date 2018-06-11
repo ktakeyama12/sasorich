@@ -4,7 +4,7 @@
         @foreach ($items as $item)
             <tr>
                 <td>{{$item->name}}</td>
-                <td>{{$item->email}}</td>
+                <td>{{$item->categories->first()->sports}}</td>
             </tr>
         @endforeach
         </table>
