@@ -10,12 +10,21 @@ use App\Http\Requests;
 
 class TestController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $items = User::all();
-        //table('people')->get();
-        //$items = User::table('users')->get();
-        //all();
-        return view('hello.index', ['items' => $items]);
+        $categories = Category::all();
+
+        return view('categories.index', [
+            'categories' => $categories,
+        ]);
+    }
+    
+    public function show($id)
+    {
+        $categories = Category::find($id);
+
+        return view('categories.show', [
+            'categories' => $categories,
+        ]);
     }
 }
