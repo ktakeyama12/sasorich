@@ -5,16 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Category;
+use App\User;
 
 class CategoriesController extends Controller
 {
     
     public function index()
     {
-        $categories = Category::all();
-
+    $categories = Category::all();
+    $users = User::all();
+        
+    $a = $categories->toArray();
+        
         return view('categories.index', [
             'categories' => $categories,
+            'users' => $users,
+                        'a' => $a,
         ]);
     }
     
@@ -63,7 +69,7 @@ class CategoriesController extends Controller
     }
     public function destroy($id)
     {
-        $category = Message::find($id);
+        $category = Category::find($id);
         $category->delete();
 
         return redirect('/');

@@ -16,3 +16,10 @@
 Route::get('/', 'CategoriesController@index');
 
 Route::resource('categories', 'CategoriesController');
+
+//Route::get('sasorich/create', 'EventsController@store');
+//Route::get('sasorich/', 'EventsController@index');
+Route::resource('events', 'EventsController');
+Route::get('events.store', 'EventsController@createpage')->name('events.store');
+Route::get('events.createpage', 'EventsController@createpage')->name('events.createpage');
+Route::get('events.index', 'EventsController@index');
