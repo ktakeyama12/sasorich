@@ -33,7 +33,7 @@
         {!! Form::text('maxpeople') !!}
         {!! Form::submit('CREATE INVITATION') !!}
 
-    {!! Form::close() !!}
+        {!! Form::close() !!}
     
-            {!! link_to_route('events.index', 'TOPへ戻る') !!}
+        {!! link_to_route('events.index', 'TOPへ戻る') !!}
 @endsection

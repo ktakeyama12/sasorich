@@ -36,7 +36,7 @@ class EventsController extends Controller
     {
         $events = new Event;
 
-        return view('events.create', [
+        return view('create', [
             'events' => $events,
         ]);
     }
@@ -101,6 +101,21 @@ class EventsController extends Controller
         $a = $events->toArray();
         
         return view('create', [
+            'events' => $events,
+            'users' => $users,
+            'a' => $a,
+        ]);
+    }
+    
+    public function top(){
+        return redirect('/');
+    }
+    
+    public function profile(){
+                $events = Event::all();
+        $users = User::all();
+        $a = $events->toArray();
+        return view('profile', [
             'events' => $events,
             'users' => $users,
             'a' => $a,

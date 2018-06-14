@@ -15,13 +15,11 @@
 
 Route::get('/', 'EventsController@index');
 
-Route::resource('categories', 'CategoriesController');
-
-//Route::get('sasorich/create', 'EventsController@store');
-//Route::get('sasorich/', 'EventsController@index');
+Route::resource('/', 'EventsController');
 Route::resource('events', 'EventsController');
-Route::get('events.store', 'EventsController@createpage')->name('events.store');
-Route::get('events.createpage', 'EventsController@createpage')->name('events.createpage');
+Route::get('events.top', 'EventsController@top')->name('events.top');
+Route::get('events.profile', 'EventsController@profile')->name('events.profile');
+
 Route::get('signup.get', 'EventsController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
