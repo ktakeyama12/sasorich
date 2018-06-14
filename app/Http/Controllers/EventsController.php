@@ -25,10 +25,10 @@ class EventsController extends Controller
     
     public function show($id)
     {
-        $categories = Category::find($id);
+        $events = Event::find($id);
 
-        return view('categories.show', [
-            'categories' => $categories,
+        return view('show', [
+            'events' => $events,
         ]);
     }
     

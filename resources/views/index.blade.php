@@ -3,16 +3,22 @@
 @section('content')
     <h1>Lunch List</h1>
         @foreach ($events as $event)
-            {{ $event->month }}/{{ $event->day }} {{ $event->timefrom }}-{{ $event->timeto }}
+            Date : {{ $event->month }}/{{ $event->day }} {{ $event->timefrom }}-{{ $event->timeto }}
             <br>
-            {{ $event->title }}
+            {!! link_to_route('events.show', $event->title, ['title' => $event->id]) !!}
             <br>
-            {{ $event->theme }}
+            Theme : {{ $event->theme }}
+            
+           
             
             {!! Form::model($event, ['route' => ['events.destroy', $event->id], 'method' => 'delete']) !!}
-            {!! Form::submit('削除') !!}
+            {!! Form::submit('Delete') !!}
             {!! Form::close() !!}
+            <br>
         @endforeach
+        
+    
+        
         
         {!! link_to_route('events.create', '新規Eventの投稿') !!}
         <br>

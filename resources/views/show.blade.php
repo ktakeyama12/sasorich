@@ -2,14 +2,13 @@
 
 @section('content')
 
-    <h1>id = {{ $events->id }} のタスク詳細ページ</h1>
-
-    <p>タスク；{{ $task->title }} <br>ステータス；{{ $task->status }}</p>
-
-    {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $task->id]) !!}
-
-    {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
-        {!! Form::submit('削除') !!}
-    {!! Form::close() !!}
+    <h1>{{ $events->title }} の詳細ページ</h1>
+    <li>Month:{{ $events->month }}</li>
+                <li>Day:{{ $events->day }}</li>
+                <li>Time From:{{ $events->timefrom }}</li>
+                <li>Time To:{{ $events->timeto }}</li>
+                <li>Place:{{ $events->place }}</li>
+                <li>Theme:{{ $events->theme }}</li>
+                <li>Max People:{{ $events->maxpeople }}</li>
 
 @endsection
