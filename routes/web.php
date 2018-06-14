@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', 'CategoriesController@index');
+Route::get('/', 'EventsController@index');
 
 Route::resource('categories', 'CategoriesController');
 
@@ -22,4 +22,14 @@ Route::resource('categories', 'CategoriesController');
 Route::resource('events', 'EventsController');
 Route::get('events.store', 'EventsController@createpage')->name('events.store');
 Route::get('events.createpage', 'EventsController@createpage')->name('events.createpage');
-Route::get('events.index', 'EventsController@index');
+Route::get('signup.get', 'EventsController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+
+// Login authentication
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');

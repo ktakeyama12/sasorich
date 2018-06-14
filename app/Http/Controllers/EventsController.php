@@ -16,7 +16,7 @@ class EventsController extends Controller
         $users = User::all();
         $a = $events->toArray();
             
-        return view('events.index', [
+        return view('index', [
             'events' => $events,
             'users' => $users,
                         'a' => $a,
@@ -56,7 +56,7 @@ class EventsController extends Controller
         
         $event->save();
         
-        return redirect('events');
+        return redirect('/');
 
     }
     
@@ -91,7 +91,7 @@ class EventsController extends Controller
         $event = Event::find($id);
         $event->delete();
         
-        return redirect('events');
+        return redirect('/');
     }
     
     public function createpage()
@@ -100,7 +100,7 @@ class EventsController extends Controller
         $users = User::all();
         $a = $events->toArray();
         
-        return view('events.create', [
+        return view('create', [
             'events' => $events,
             'users' => $users,
             'a' => $a,
